@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import {Http, Response} from '@angular/http';
-import { map, takeUntil, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 
 
@@ -26,7 +26,7 @@ export class ViajesCardsComponent {
 
   getData(){
     return this.http.get(this.apiUrl)
-      .map((res: Response) => res.json())
+      pipe(map((res: Response) => res.json()))
   }
 
   getViajes(){
